@@ -1,111 +1,164 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
 #root {
-  width: 1126px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
   border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  justify-content: center;
+  background: url("images/bg.png");
+  background-size: cover;
 }
 
-body {
-  margin: 0;
+/* Main Wrapper Layer */
+.enhanced-cards-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* Premium Enhanced Card Layout */
+.enhanced-card {
+  width: 330px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(20, 24, 43, 0.72) 0%, rgba(10, 13, 26, 0.9) 100%);
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  
+  /* Dual-layer border: creates a high-contrast premium edge line */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+/* Card Hover Animation Settings */
+.enhanced-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(0, 242, 254, 0.15), 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(0, 242, 254, 0.3);
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* Top Panel with Dynamic Gradient */
+.enhanced-card-header {
+  height: 42%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, #2e1ca8 0%, #170d54 40%, #06c29c 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-code {
+/* Adds a subtle overlay grid/gloss filter over header gradient */
+.enhanced-card-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Pop out Icon floating wrapper */
+.icon-wrapper {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 20px;
+  border-radius: 24px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.enhanced-card:hover .icon-wrapper {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.enhanced-card-icon {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+}
+
+/* Card text body styling */
+.enhanced-card-body {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+/* Typography Enhancements: Swapped to cleaner modern sans-serif */
+.enhanced-card-title {
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0 0 12px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.enhanced-card-description {
+  color: #94a3b8; /* Muted tech gray text */
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 0 28px 0;
+}
+
+/* Enhanced Call-to-action Pill Button */
+.enhanced-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 40px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  box-shadow: 0 8px 24px rgba(0, 242, 254, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Button Interactions */
+.enhanced-btn:hover {
+  box-shadow: 0 12px 32px rgba(0, 242, 254, 0.5);
+  transform: translateY(-1px);
+}
+
+.enhanced-btn:hover .btn-arrow {
+  transform: translateX(4px); /* Arrow glides forward slightly on hover */
+}
+
+.enhanced-btn:active {
+  transform: translateY(1px);
 }
