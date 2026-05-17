@@ -1,0 +1,243 @@
+/* CodeToSpec.css */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.upload-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("/background.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.upload-card {
+  position: relative;
+  z-index: 10;
+
+  width: 420px;
+  padding: 35px;
+
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(0, 255, 255, 0.25);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 255, 255, 0.1);
+
+  text-align: center;
+}
+
+.upload-card h1 {
+  margin: 0;
+  color: white;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.subtitle {
+  margin-top: 10px;
+  margin-bottom: 30px;
+
+  color: #d1d5db;
+  font-size: 15px;
+}
+
+.upload-type-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-bottom: 25px;
+}
+
+.type-btn {
+  padding: 14px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.type-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.type-btn.active {
+  background: linear-gradient(
+    135deg,
+    #06b6d4,
+    #8b5cf6
+  );
+
+  border: none;
+}
+
+.type-icon {
+  height: 25px;
+  width: 25px;
+  margin-bottom: 10px;
+}
+
+.upload-box {
+  height: 180px;
+
+  border: 2px dashed rgba(0, 255, 255, 0.4);
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.upload-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.upload-icon {
+  font-size: 42px;
+  color: #67e8f9;
+
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  color: white;
+  font-size: 15px;
+
+  margin: 0;
+}
+
+.upload-subtext {
+  margin-top: 8px;
+
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.selected-files {
+  margin-top: 12px;
+
+  color: #67e8f9;
+  font-size: 13px;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.upload-btn {
+  width: 100%;
+
+  margin-top: 25px;
+  padding: 14px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    90deg,
+    #06b6d4,
+    #8b5cf6
+  );
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  transform: scale(1.02);
+}
+
+.disabled-btn {
+  background: rgba(120, 120, 120, 0.4);
+  cursor: not-allowed;
+}
+
+.progress-container {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #06b6d4,
+    #8b5cf6
+  );
+
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  color: white;
+  font-size: 13px;
+
+  margin-top: 8px;
+  text-align: center;
+}
+
+.upload-message {
+  margin-top: 15px;
+
+  color: #67e8f9;
+  font-size: 14px;
+
+  text-align: center;
+}
